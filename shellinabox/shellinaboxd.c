@@ -253,6 +253,7 @@ static int completePendingRequest(struct Session *session,
     HttpConnection *http        = session->http;
     char *response              = stringPrintf(NULL,
                                              "HTTP/1.1 200 OK\r\n"
+                                             "Access-Control-Allow-Origin: *\r\n"
                                              "Content-Type: application/json; "
                                              "charset=utf-8\r\n"
                                              "Content-Length: %ld\r\n"
@@ -584,6 +585,7 @@ static void serveStaticFile(HttpConnection *http, const char *contentType,
 
   char *response   = stringPrintf(NULL,
                                   "HTTP/1.1 200 OK\r\n"
+                                  "Access-Control-Allow-Origin: *\r\n"
                                   "Content-Type: %s\r\n"
                                   "Content-Length: %ld\r\n"
                                   "%s\r\n",
@@ -679,6 +681,7 @@ static int shellInABoxHttpHandler(HttpConnection *http, void *arg,
                             shellInABoxSize - 1;
     char *response        = stringPrintf(NULL,
                              "HTTP/1.1 200 OK\r\n"
+                             "Access-Control-Allow-Origin: *\r\n"
                              "Content-Type: text/javascript; charset=utf-8\r\n"
                              "Content-Length: %d\r\n"
                              "\r\n",

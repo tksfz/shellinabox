@@ -811,6 +811,8 @@ static int httpHandleCommand(struct HttpConnection *http,
   if (!strcmp(http->method, "OPTIONS")) {
     char *response                           = stringPrintf(NULL,
                                                 "HTTP/1.1 200 OK\r\n"
+                                                "Access-Control-Allow-Origin: *\r\n"
+                                                "Access-Control-Allow-Headers: Cache-Control\r\n"
                                                 "Content-Length: 0\r\n"
                                                 "Allow: GET, POST, OPTIONS\r\n"
                                                 "\r\n");

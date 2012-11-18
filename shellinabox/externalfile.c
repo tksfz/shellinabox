@@ -165,6 +165,7 @@ static int externalFileHttpHandler(HttpConnection *http, void *arg,
     // Set up response header
     char *response         = stringPrintf(NULL,
                                           "HTTP/1.1 200 OK\r\n"
+                                          "Access-Control-Allow-Origin: *\r\n"
                                           "Content-Type: %s\r\n"
                                           "Content-Length: %d\r\n"
                                           "\r\n",
